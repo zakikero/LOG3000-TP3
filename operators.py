@@ -32,9 +32,9 @@ def subtract(a, b):
         b (float): Second opérande (base)
     
     Sorties:
-        float: La différence b - a
+        float: La différence a - b
     """
-    return b - a
+    return a - b
 
 def multiply(a, b):
     """
