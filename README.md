@@ -716,6 +716,6 @@ Ces documentations vous permettent de :
 
 <div align="center">
 
-**Fait avec ❤️ par l'Équipe 07**
+**Fait par l'Équipe 07**
 
 </div>
