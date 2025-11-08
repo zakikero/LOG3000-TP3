@@ -136,34 +136,34 @@ LOG3000-TP3/
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  1. GET /                                                    │
-│     → Flask rend index.html avec result=""                   │
+│  1. GET /                                                   │
+│     → Flask rend index.html avec result=""                  │
 │     → Navigateur affiche le formulaire vide                 │
 └─────────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│  2. Interaction utilisateur (JavaScript côté client)         │
+│  2. Interaction utilisateur (JavaScript côté client)        │
 │     → Clics sur boutons ajoutent des caractères             │
 │     → appendToDisplay('5'), appendToDisplay('+'), etc.      │
 │     → Champ display : "5+3"                                 │
 └─────────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│  3. Soumission formulaire (clic sur "=")                     │
-│     → POST / avec form data: display="5+3"                   │
+│  3. Soumission formulaire (clic sur "=")                    │
+│     → POST / avec form data: display="5+3"                  │
 │     → Flask reçoit request.form.get('display')              │
 └─────────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│  4. Traitement serveur                                       │
-│     → calculate("5+3")                                       │
+│  4. Traitement serveur                                      │
+│     → calculate("5+3")                                      │
 │     → Parse : left="5", operator="+", right="3"             │
 │     → Validation : conversions en float                     │
 │     → Appel : OPS['+'](5, 3) = add(5, 3) = 8                │
 └─────────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
-│  5. Réponse                                                  │
+│  5. Réponse                                                 │
 │     → render_template('index.html', result=8)               │
 │     → HTML généré avec <input value="8" ...>                │
 │     → Navigateur affiche le résultat                        │
@@ -201,34 +201,7 @@ git clone https://github.com/zakikero/LOG3000-TP3.git
 cd LOG3000-TP3
 ```
 
-#### 2. (Optionnel mais recommandé) Créer un environnement virtuel
-
-**Pourquoi ?** Isole les dépendances du projet des autres projets Python.
-
-**Sur Windows (PowerShell) :**
-
-```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
-
-**Sur Windows (Command Prompt) :**
-
-```cmd
-python -m venv venv
-venv\Scripts\activate.bat
-```
-
-**Sur macOS/Linux :**
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-Vous devriez voir `(venv)` apparaître dans votre prompt.
-
-#### 3. Installer les dépendances
+#### 2. Installer les dépendances
 
 ```bash
 pip install flask
@@ -240,7 +213,7 @@ Pour une installation avec versions spécifiques (recommandé) :
 pip install flask>=2.0.0
 ```
 
-#### 4. Vérifier l'installation
+#### 3. Vérifier l'installation
 
 Vérifiez que Flask est correctement installé :
 
@@ -250,7 +223,7 @@ python -c "import flask; print(flask.__version__)"
 
 Devrait afficher la version de Flask (ex: `2.3.0` ou supérieur).
 
-#### 5. Lancer l'application
+#### 4. Lancer l'application
 
 ```bash
 python app.py
@@ -313,23 +286,13 @@ python3 app.py
 
 ### Lancer l'application
 
-1. **Activer l'environnement virtuel** (si utilisé) :
-
-   ```bash
-   # Windows PowerShell
-   .\venv\Scripts\Activate.ps1
-
-   # macOS/Linux
-   source venv/bin/activate
-   ```
-
-2. **Démarrer le serveur Flask** :
+1. **Démarrer le serveur Flask** :
 
    ```bash
    python app.py
    ```
 
-3. **Ouvrir dans le navigateur** :
+2. **Ouvrir dans le navigateur** :
    - Automatique : Cliquez sur le lien dans le terminal
    - Manuel : Naviguez vers `http://localhost:5000`
 
@@ -439,9 +402,70 @@ deactivate
 
 ## Tests
 
+Le projet dispose d'une suite complète de tests automatisés utilisant pytest.
+
+### Tests automatisés
+
+#### Installation
+
+Pour exécuter les tests, installez d'abord pytest :
+
+```bash
+pip install pytest pytest-cov
+```
+
+#### Exécution des tests
+
+> **Note :** Utilisez `python -m pytest` pour exécuter les tests sans environnement virtuel.
+
+**Exécuter tous les tests :**
+
+```bash
+python -m pytest tests/ -v
+```
+
+**Exécuter un fichier de test spécifique :**
+
+```bash
+python -m pytest tests/test_operators.py -v
+python -m pytest tests/test_calculate.py -v
+python -m pytest tests/test_routes.py -v
+```
+
+**Avec rapport de couverture :**
+
+```bash
+python -m pytest tests/ --cov=. --cov-report=html
+```
+
+#### Statistiques des tests
+
+- **Total de tests :** 21 tests
+- **Test operators :** 5 tests (opérations arithmétiques)
+- **Test calculate :** 9 tests (parsing d'expressions)
+- **Test routes :** 7 tests (intégration Flask)
+
+#### Documentation des tests
+
+Pour plus de détails sur les tests, consultez :
+
+- **[tests/README.md](tests/README.md)** - Guide complet des tests
+
+#### Résultats des tests
+
+- **Tests réussis :** 19/21 (90%)
+- **Tests échoués :** 2/21 (10%)
+
+**Bugs identifiés :**
+
+1. Bug dans la soustraction (ordre des opérandes inversé)
+2. Bug dans le parsing des nombres négatifs
+
+Voir `tests/README.md` pour plus de détails sur les bugs et les solutions proposées.
+
 ### Tests manuels
 
-Actuellement, l'application utilise des tests manuels. Voici le protocole de test :
+Vous pouvez également tester manuellement l'application. Voici le protocole de test :
 
 #### Scénarios de test
 
@@ -492,74 +516,6 @@ Actuellement, l'application utilise des tests manuels. Voici le protocole de tes
 - Input : `5/0`
 - Résultat attendu : `Error: ...`
 - Statut : Pass / Fail
-
-### Tests automatisés (à venir)
-
-**Note :** Les tests automatisés seront ajoutés dans une future itération.
-
-#### Structure prévue
-
-```
-tests/
-├── __init__.py
-├── test_operators.py         # Tests unitaires pour operators.py
-├── test_calculate.py         # Tests unitaires pour calculate()
-└── test_routes.py            # Tests d'intégration pour les routes Flask
-```
-
-#### Framework de test prévu
-
-- **pytest** : Framework de test Python moderne
-- **Flask-Testing** : Extensions pour tester les applications Flask
-- **Coverage** : Mesure de la couverture de code
-
-#### Comment exécuter les tests (futur)
-
-```bash
-# Installer les dépendances de test
-pip install pytest pytest-cov flask-testing
-
-# Exécuter tous les tests
-pytest
-
-# Exécuter avec rapport de couverture
-pytest --cov=. --cov-report=html
-
-# Exécuter un fichier de test spécifique
-pytest tests/test_operators.py
-
-# Exécuter en mode verbose
-pytest -v
-```
-
-#### Exemple de test unitaire (futur)
-
-```python
-# tests/test_operators.py
-import pytest
-from operators import add, subtract, multiply, divide
-
-def test_add():
-    assert add(5, 3) == 8
-    assert add(-2, 5) == 3
-    assert add(0, 0) == 0
-
-def test_subtract():
-    assert subtract(3, 10) == 7  # 10-3
-    assert subtract(5, 5) == 0
-
-def test_multiply():
-    assert multiply(2, 3) == 8   # 2**3
-    assert multiply(5, 2) == 25  # 5**2
-
-def test_divide():
-    assert divide(10, 3) == 3    # 10//3
-    assert divide(7, 2) == 3     # 7//2
-
-def test_divide_by_zero():
-    with pytest.raises(ZeroDivisionError):
-        divide(5, 0)
-```
 
 ---
 
