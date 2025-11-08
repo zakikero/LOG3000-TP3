@@ -82,13 +82,13 @@ class TestIndexRouteGET:
         expected_buttons = {
             '0': "onclick=\"appendToDisplay('0')\">0</button>",
             '1': "onclick=\"appendToDisplay('1')\">1</button>",
-            '2': "onclick=\"appendToDisplay('2')\">2</button>",  # Bug: actuellement "02"
+            '2': "onclick=\"appendToDisplay('2')\">2</button>",  
             '3': "onclick=\"appendToDisplay('3')\">3</button>",
             '4': "onclick=\"appendToDisplay('4')\">4</button>",
             '5': "onclick=\"appendToDisplay('5')\">5</button>",
             '6': "onclick=\"appendToDisplay('6')\">6</button>",
             '7': "onclick=\"appendToDisplay('7')\">7</button>",
-            '8': "onclick=\"appendToDisplay('8')\">8</button>",  # Bug: actuellement "88"
+            '8': "onclick=\"appendToDisplay('8')\">8</button>",  
             '9': "onclick=\"appendToDisplay('9')\">9</button>",
         }
         
@@ -96,8 +96,8 @@ class TestIndexRouteGET:
         expected_operators = {
             '+': "onclick=\"appendToDisplay('+')\">+</button>",
             '-': "onclick=\"appendToDisplay('-')\">-</button>",
-            '*': "onclick=\"appendToDisplay('*')\">*</button>",  # Bug: actuellement vide
-            '/': "onclick=\"appendToDisplay('/')\">/<",          # Bug: actuellement vide
+            '*': "onclick=\"appendToDisplay('*')\">*</button>",
+            '/': "onclick=\"appendToDisplay('/')\">/</button>",
         }
         
         # Vérifier les boutons de contrôle
