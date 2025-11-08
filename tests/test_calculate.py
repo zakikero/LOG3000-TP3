@@ -56,12 +56,14 @@ class TestCalculateValid:
     
     def test_calculate_division(self):
         """
-        Test de la division (entière) via calculate.
-        
-        Vérifie que "10/3" retourne 3 (division entière)
+        Test de la division décimale via calculate.
+    
+        Vérifie que "10/3" retourne 3.3333… (division décimale)
         """
         result = calculate("10/3")
-        assert result == 3, f"Expected 3, but got {result}"
+        expected = 10 / 3
+        assert abs(result - expected) < 1e-9, f"Expected {expected}, but got {result}"
+
     
     def test_calculate_negative_numbers(self):
         """

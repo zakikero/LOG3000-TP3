@@ -81,14 +81,15 @@ class TestDivide:
     """
     
     def test_divide_with_remainder(self):
-        """
-        Test de la division avec reste.
-        
-        Vérifie que divide(10, 3) = 10 // 3 = 3
-        """
-        result = divide(10, 3)
-        assert result == 3, f"Expected 3, but got {result}"
+     """
+     Test de la division décimale.
     
+     Vérifie que divide(10, 3) retourne un résultat décimal (≈ 3.3333…)
+        """
+    result = divide(10, 3)
+    expected = 10 / 3
+    assert abs(result - expected) < 1e-9, f"Expected {expected}, but got {result}"
+
     def test_divide_by_zero(self):
         """
         Test de la division par zéro.

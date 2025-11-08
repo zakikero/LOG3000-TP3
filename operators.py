@@ -51,16 +51,17 @@ def multiply(a, b):
 
 def divide(a, b):
     """
-    Effectue une division entière de a par b.
+    Effectue une division décimale de a par b.
     
     Entrées:
         a (float): Le dividende
         b (float): Le diviseur (ne doit pas être zéro)
     
     Sorties:
-        float: Le quotient entier de a divisé par b
+        float: Le quotient décimal de a divisé par b
     
     Lève:
         ZeroDivisionError: Si b est égal à zéro
     """
-    return a // b
+    return a / b
+
