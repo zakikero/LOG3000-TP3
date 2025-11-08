@@ -48,6 +48,7 @@ def calculate(expr: str):
     if not expr or not isinstance(expr, str):
         raise ValueError("empty expression")
 
+    # On enlève les espaces
     s = expr.replace(" ", "")
 
     op_pos = -1
@@ -55,11 +56,17 @@ def calculate(expr: str):
 
     for i, ch in enumerate(s):
         if ch in OPS:
+            # Ignorer un signe + ou - au tout début de l'expression
+            # Exemple : "-5+10" -> on ignore le '-' d'indice 0
+            if i == 0 and ch in ['+', '-'] and len(s) > 1:
+                continue
+
             if op_pos != -1:
                 raise ValueError("only one operator is allowed")
             op_pos = i
             op_char = ch
 
+    # L'opérateur ne peut pas être le premier caractère (après éventuel signe) ni le dernier
     if op_pos <= 0 or op_pos >= len(s) - 1:
         raise ValueError("invalid expression format")
 
