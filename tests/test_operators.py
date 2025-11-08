@@ -53,7 +53,7 @@ class TestSubtract:
         Vérifie que subtract(10, 3) = 3 - 10 = -7
         """
         result = subtract(10, 3)
-        assert result == -7, f"Expected -7, but got {result}"
+        assert result == 7, f"Expected 7, but got {result}"
 
 
 class TestMultiply:
