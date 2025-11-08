@@ -8,20 +8,20 @@
 
 ---
 
-## 📋 Table des matières
+## Table des matières
 
-- [À propos du projet](#-à-propos-du-projet)
-- [Fonctionnalités](#-fonctionnalités)
-- [Architecture](#-architecture)
-- [Installation](#-installation)
-- [Utilisation](#-utilisation)
-- [Tests](#-tests)
-- [Contribution](#-contribution)
-- [Documentation des modules](#-documentation-des-modules)
+- [À propos du projet](#à-propos-du-projet)
+- [Fonctionnalités](#fonctionnalités)
+- [Architecture](#architecture)
+- [Installation](#installation)
+- [Utilisation](#utilisation)
+- [Tests](#tests)
+- [Contribution](#contribution)
+- [Documentation des modules](#documentation-des-modules)
 
 ---
 
-## 🎯 À propos du projet
+## À propos du projet
 
 ### Description
 
@@ -57,7 +57,7 @@ Projet réalisé dans le cadre du cours **LOG3000** par l'**Équipe 07**.
 
 ---
 
-## ✨ Fonctionnalités
+## Fonctionnalités
 
 ### Opérations supportées
 
@@ -72,16 +72,16 @@ Projet réalisé dans le cadre du cours **LOG3000** par l'**Équipe 07**.
 
 ### Fonctionnalités techniques
 
-- ✅ **Interface responsive** : Design moderne adaptatif
-- ✅ **Validation robuste** : Vérification côté serveur de toutes les entrées
-- ✅ **Gestion d'erreurs** : Messages d'erreur explicites pour les expressions invalides
-- ✅ **Code documenté** : Docstrings complètes et commentaires en français
-- ✅ **Architecture modulaire** : Séparation claire entre logique métier et présentation
-- ✅ **Templates Jinja2** : Rendu dynamique des résultats
+- **Interface responsive** : Design moderne adaptatif
+- **Validation robuste** : Vérification côté serveur de toutes les entrées
+- **Gestion d'erreurs** : Messages d'erreur explicites pour les expressions invalides
+- **Code documenté** : Docstrings complètes et commentaires en français
+- **Architecture modulaire** : Séparation claire entre logique métier et présentation
+- **Templates Jinja2** : Rendu dynamique des résultats
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### Structure du projet
 
@@ -172,7 +172,7 @@ LOG3000-TP3/
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### Prérequis
 
@@ -280,7 +280,7 @@ ou
 http://127.0.0.1:5000
 ```
 
-Vous devriez voir l'interface de la calculatrice ! 🎉
+Vous devriez voir l'interface de la calculatrice !
 
 ### Résolution de problèmes d'installation
 
@@ -309,7 +309,7 @@ python3 app.py
 
 ---
 
-## 🚀 Utilisation
+## Utilisation
 
 ### Lancer l'application
 
@@ -437,7 +437,7 @@ deactivate
 
 ---
 
-## 🧪 Tests
+## Tests
 
 ### Tests manuels
 
@@ -449,49 +449,49 @@ Actuellement, l'application utilise des tests manuels. Voici le protocole de tes
 
 - Input : `5+3`
 - Résultat attendu : `8`
-- Statut : ✅ Pass / ❌ Fail
+- Statut : Pass / Fail
 
 **Test 2 : Soustraction**
 
 - Input : `10-4`
 - Résultat attendu : `6`
-- Statut : ✅ Pass / ❌ Fail
+- Statut : Pass / Fail
 
 **Test 3 : Puissance (via \*)**
 
 - Input : `2*3`
 - Résultat attendu : `8` (2³)
-- Statut : ✅ Pass / ❌ Fail
+- Statut : Pass / Fail
 
 **Test 4 : Division entière (via /)**
 
 - Input : `10/3`
 - Résultat attendu : `3`
-- Statut : ✅ Pass / ❌ Fail
+- Statut : Pass / Fail
 
 **Test 5 : Gestion d'erreur - Expression vide**
 
 - Input : `[soumettre sans rien saisir]`
 - Résultat attendu : `Error: empty expression`
-- Statut : ✅ Pass / ❌ Fail
+- Statut : Pass / Fail
 
 **Test 6 : Gestion d'erreur - Plusieurs opérateurs**
 
 - Input : `5+3-2`
 - Résultat attendu : `Error: only one operator is allowed`
-- Statut : ✅ Pass / ❌ Fail
+- Statut : Pass / Fail
 
 **Test 7 : Gestion d'erreur - Caractères non numériques**
 
 - Input : `abc+5`
 - Résultat attendu : `Error: operands must be numbers`
-- Statut : ✅ Pass / ❌ Fail
+- Statut : Pass / Fail
 
 **Test 8 : Gestion d'erreur - Division par zéro**
 
 - Input : `5/0`
 - Résultat attendu : `Error: ...`
-- Statut : ✅ Pass / ❌ Fail
+- Statut : Pass / Fail
 
 ### Tests automatisés (à venir)
 
@@ -563,7 +563,7 @@ def test_divide_by_zero():
 
 ---
 
-## 🤝 Contribution
+## Contribution
 
 ### Flux de travail Git
 
@@ -670,16 +670,16 @@ Pour signaler un bug ou proposer une fonctionnalité :
 
 #### Bonnes pratiques
 
-- ✅ Tester localement avant de pousser
-- ✅ Écrire des messages de commit clairs et descriptifs
-- ✅ Ajouter des docstrings et commentaires en français
-- ✅ Suivre les conventions de code du projet (PEP 8)
-- ✅ Mettre à jour la documentation si nécessaire
-- ✅ Garder les PR focalisées (une fonctionnalité/fix par PR)
+- Tester localement avant de pousser
+- Écrire des messages de commit clairs et descriptifs
+- Ajouter des docstrings et commentaires en français
+- Suivre les conventions de code du projet (PEP 8)
+- Mettre à jour la documentation si nécessaire
+- Garder les PR focalisées (une fonctionnalité/fix par PR)
 
 ---
 
-## 📚 Documentation des modules
+## Documentation des modules
 
 Chaque module du projet possède sa propre documentation détaillée :
 
@@ -687,30 +687,30 @@ Chaque module du projet possède sa propre documentation détaillée :
 
 **Fichiers statiques (CSS, JavaScript, assets)**
 
-- 📝 Raison d'être du module
-- 📂 Description de `style.css` et son architecture
-- 🔗 Dépendances et hypothèses
-- 💡 Notes pour les développeurs
-- 🎨 Guide de style CSS
+- Raison d'être du module
+- Description de `style.css` et son architecture
+- Dépendances et hypothèses
+- Notes pour les développeurs
+- Guide de style CSS
 
 ### [templates/README.md](templates/README.md)
 
 **Templates HTML Jinja2**
 
-- 📝 Raison d'être du module
-- 📂 Structure détaillée de `index.html`
-- 🔗 Variables Jinja2 utilisées
-- 🔄 Architecture du flux de données
-- 💡 Syntaxe Jinja2 et bonnes pratiques
-- 🛡️ Considérations de sécurité
+- Raison d'être du module
+- Structure détaillée de `index.html`
+- Variables Jinja2 utilisées
+- Architecture du flux de données
+- Syntaxe Jinja2 et bonnes pratiques
+- Considérations de sécurité
 
 Ces documentations vous permettent de :
 
-- ✅ Comprendre rapidement la structure du projet
-- ✅ Naviguer efficacement dans le code
-- ✅ Connaître les dépendances de chaque module
-- ✅ Suivre les bonnes pratiques établies
-- ✅ Contribuer sans friction
+- Comprendre rapidement la structure du projet
+- Naviguer efficacement dans le code
+- Connaître les dépendances de chaque module
+- Suivre les bonnes pratiques établies
+- Contribuer sans friction
 
 ---
 
