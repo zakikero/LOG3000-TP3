@@ -97,6 +97,31 @@ class TestDivide:
         """
         with pytest.raises(ZeroDivisionError):
             divide(5, 0)
+    
+    def test_divide_should_return_decimal_not_integer(self):
+        """
+        Test démontrant que divide() retourne incorrectement une division entière.
+        
+        BUG #3: La fonction divide(a, b) utilise a // b (division entière) au lieu de a / b
+        
+        Exemple: 10 / 3 devrait retourner 3.333... mais retourne 3.0
+        
+        Comportement attendu: divide(10, 3) devrait retourner 3.333...
+        Comportement actuel: divide(10, 3) retourne 3.0 (division entière)
+        
+        Ce bug affecte toutes les divisions non-entières et cause une perte de précision.
+        """
+        result = divide(10, 3)
+        
+        # Le résultat attendu devrait être 3.333... (10 / 3)
+        expected_decimal = 10 / 3  # 3.3333333333333335
+        
+        # Ce test devrait échouer car divide() utilise // au lieu de /
+        assert result == expected_decimal, (
+            f"Division bug: Expected {expected_decimal} (decimal division), "
+            f"but got {result} (integer division). "
+            f"The function uses '//' instead of '/'"
+        )
 
 
 if __name__ == "__main__":
