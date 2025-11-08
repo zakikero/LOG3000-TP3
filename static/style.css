@@ -1,3 +1,9 @@
+/* 
+ * Feuille de style pour la calculatrice Flask
+ * Design moderne avec grille de boutons 4x4
+ */
+
+/* Centrage de l'application sur toute la hauteur de la fenêtre */
 body {
    font-family: Arial, sans-serif;
    background-color: #f0f0f0;
@@ -8,6 +14,7 @@ body {
    margin: 0;
 }
 
+/* Conteneur principal de la calculatrice */
 .calculator {
    width: 100%;
    max-width: 600px;
@@ -18,12 +25,14 @@ body {
    text-align: center;
 }
 
+/* Titre de la calculatrice */
 h1 {
    color: #fff;
    margin-bottom: 20px;
    font-size: 36px;
 }
 
+/* Champ d'affichage des résultats et de l'expression */
 #display {
    width: 100%;
    height: 80px;
@@ -37,12 +46,14 @@ h1 {
    color: #fff;
 }
 
+/* Grille de boutons 4 colonnes avec espacement uniforme */
 .buttons {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    gap: 15px;
 }
 
+/* Style de base pour tous les boutons */
 .btn {
    width: 100%;
    padding: 30px;
@@ -55,10 +66,12 @@ h1 {
    transition: background-color 0.2s;
 }
 
+/* Effet de survol pour les boutons numériques */
 .btn:hover {
    background-color: #555;
 }
 
+/* Style distinctif pour les boutons d'opérateurs */
 .operator {
    background-color: #ff9500;
 }
@@ -67,6 +80,7 @@ h1 {
    background-color: #e68a00;
 }
 
+/* Feedback visuel lors du clic */
 .btn:active {
    background-color: #444;
 }
