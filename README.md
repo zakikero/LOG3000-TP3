@@ -440,10 +440,12 @@ python -m pytest tests/ --cov=. --cov-report=html
 
 #### Statistiques des tests
 
+
 - **Total de tests :** 23 tests
 - **Test operators :** 6 tests (opérations arithmétiques + bug division)
 - **Test calculate :** 9 tests (parsing d'expressions)
 - **Test routes :** 8 tests (intégration Flask + bug UI)
+
 
 #### Documentation des tests
 
