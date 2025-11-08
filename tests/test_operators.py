@@ -50,10 +50,10 @@ class TestSubtract:
         """
         Test de la soustraction de deux nombres positifs.
         
-        Vérifie que subtract(3, 10) = 10 - 3 = 7
+        Vérifie que subtract(10, 3) = 3 - 10 = -7
         """
-        result = subtract(3, 10)
-        assert result == 7, f"Expected 7, but got {result}"
+        result = subtract(10, 3)
+        assert result == -7, f"Expected -7, but got {result}"
 
 
 class TestMultiply:
