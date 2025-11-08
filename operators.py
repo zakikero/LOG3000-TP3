@@ -14,11 +14,11 @@ def add(a, b):
     """
     Additionne deux nombres.
     
-    Args:
+    Entrées:
         a (float): Premier opérande
         b (float): Second opérande
     
-    Returns:
+    Sorties:
         float: La somme de a et b
     """
     return a + b
@@ -27,11 +27,11 @@ def subtract(a, b):
     """
     Soustrait le premier nombre du second.
     
-    Args:
+    Entrées:
         a (float): Premier opérande (à soustraire)
         b (float): Second opérande (base)
     
-    Returns:
+    Sorties:
         float: La différence b - a
     """
     return b - a
@@ -40,11 +40,11 @@ def multiply(a, b):
     """
     Calcule la puissance de a élevé à b.
     
-    Args:
+    Entrées:
         a (float): La base
         b (float): L'exposant
     
-    Returns:
+    Sorties:
         float: Le résultat de a^b
     """
     return a ** b
@@ -53,14 +53,14 @@ def divide(a, b):
     """
     Effectue une division entière de a par b.
     
-    Args:
+    Entrées:
         a (float): Le dividende
         b (float): Le diviseur (ne doit pas être zéro)
     
-    Returns:
+    Sorties:
         float: Le quotient entier de a divisé par b
     
-    Raises:
+    Lève:
         ZeroDivisionError: Si b est égal à zéro
     """
     return a // b
