@@ -440,28 +440,29 @@ python -m pytest tests/ --cov=. --cov-report=html
 
 #### Statistiques des tests
 
-- **Total de tests :** 21 tests
-- **Test operators :** 5 tests (opérations arithmétiques)
+- **Total de tests :** 23 tests
+- **Test operators :** 6 tests (opérations arithmétiques + bug division)
 - **Test calculate :** 9 tests (parsing d'expressions)
-- **Test routes :** 7 tests (intégration Flask)
+- **Test routes :** 8 tests (intégration Flask + bug UI)
 
 #### Documentation des tests
 
 Pour plus de détails sur les tests, consultez :
 
 - **[tests/README.md](tests/README.md)** - Guide complet des tests
+- **[BUGS_SUMMARY.md](BUGS_SUMMARY.md)** - Résumé des bugs identifiés
 
 #### Résultats des tests
 
-- **Tests réussis :** 19/21 (90%)
-- **Tests échoués :** 2/21 (10%)
+- **Tests réussis :** 19/23 (83%)
+- **Tests échoués :** 4/23 (17%)
 
 **Bugs identifiés :**
 
-1. Bug dans la soustraction (ordre des opérandes inversé)
-2. Bug dans le parsing des nombres négatifs
-
-Voir `tests/README.md` pour plus de détails sur les bugs et les solutions proposées.
+1. **Bug #1** : Soustraction - ordre des opérandes inversé (`b-a` au lieu de `a-b`)
+2. **Bug #2** : Nombres négatifs non supportés (parser traite `-` comme opérateur)
+3. **Bug #3** : Division entière au lieu de décimale (`//` au lieu de `/`)
+4. **Bug #4** : Bugs d'affichage UI (boutons "02", "88", "\*" et "/" vides)
 
 ### Tests manuels
 

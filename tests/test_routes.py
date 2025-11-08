@@ -61,6 +61,76 @@ class TestIndexRouteGET:
         """
         response = client.get('/')
         assert b'<form' in response.data, "Expected form element in response"
+    
+    def test_calculator_buttons_display_correctly(self, client):
+        """
+        Test des bugs d'affichage des boutons de la calculatrice.
+        
+        BUG #4: Plusieurs boutons ont un affichage incorrect dans le HTML :
+        - Bouton "2" affiche "02" au lieu de "2"
+        - Bouton "8" affiche "88" au lieu de "8"
+        - Bouton "*" (multiplication) est vide (pas de texte)
+        - Bouton "/" (division) est vide (pas de texte)
+        
+        Ce test vérifie que TOUS les boutons (0-9, +, -, *, /, C, =) 
+        ont le texte correct affiché.
+        """
+        response = client.get('/')
+        html = response.data.decode('utf-8')
+        
+        # Vérifier tous les boutons numériques (0-9)
+        expected_buttons = {
+            '0': "onclick=\"appendToDisplay('0')\">0</button>",
+            '1': "onclick=\"appendToDisplay('1')\">1</button>",
+            '2': "onclick=\"appendToDisplay('2')\">2</button>",  # Bug: actuellement "02"
+            '3': "onclick=\"appendToDisplay('3')\">3</button>",
+            '4': "onclick=\"appendToDisplay('4')\">4</button>",
+            '5': "onclick=\"appendToDisplay('5')\">5</button>",
+            '6': "onclick=\"appendToDisplay('6')\">6</button>",
+            '7': "onclick=\"appendToDisplay('7')\">7</button>",
+            '8': "onclick=\"appendToDisplay('8')\">8</button>",  # Bug: actuellement "88"
+            '9': "onclick=\"appendToDisplay('9')\">9</button>",
+        }
+        
+        # Vérifier tous les boutons opérateurs
+        expected_operators = {
+            '+': "onclick=\"appendToDisplay('+')\">+</button>",
+            '-': "onclick=\"appendToDisplay('-')\">-</button>",
+            '*': "onclick=\"appendToDisplay('*')\">*</button>",  # Bug: actuellement vide
+            '/': "onclick=\"appendToDisplay('/')\">/<",          # Bug: actuellement vide
+        }
+        
+        # Vérifier les boutons de contrôle
+        expected_controls = {
+            'C': "onclick=\"clearDisplay()\">C</button>",
+            '=': "type=\"submit\" class=\"btn operator\">=</button>",
+        }
+        
+        # Tester tous les boutons numériques
+        for digit, expected_html in expected_buttons.items():
+            assert expected_html in html, \
+                f"Bug: Button '{digit}' not displaying correctly. Expected pattern: {expected_html}"
+        
+        # Tester tous les boutons opérateurs
+        for operator, expected_html in expected_operators.items():
+            assert expected_html in html, \
+                f"Bug: Operator button '{operator}' not displaying correctly. Expected pattern: {expected_html}"
+        
+        # Tester les boutons de contrôle
+        for control, expected_html in expected_controls.items():
+            assert expected_html in html, \
+                f"Bug: Control button '{control}' not displaying correctly. Expected pattern: {expected_html}"
+        
+        # Vérifier qu'il n'y a PAS les bugs connus
+        assert '>02</button>' not in html, "Bug: Found '02' instead of '2' in button display"
+        assert '>88</button>' not in html, "Bug: Found '88' instead of '8' in button display"
+        
+        # Vérifier qu'il n'y a pas de boutons vides pour * et /
+        # Un bouton vide aurait la forme: onclick="appendToDisplay('*')"></button>
+        assert "onclick=\"appendToDisplay('*')\"></button>" not in html, \
+            "Bug: Multiplication button (*) is empty - missing display text"
+        assert "onclick=\"appendToDisplay('/')\"></button>" not in html, \
+            "Bug: Division button (/) is empty - missing display text"
 
 
 class TestIndexRoutePOST:
