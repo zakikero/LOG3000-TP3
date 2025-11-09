@@ -454,14 +454,13 @@ Pour plus de détails sur les tests, consultez :
 
 #### Résultats des tests
 
-- **Tests réussis :** 22/23 (96%)
-- **Tests échoués :** 1/23 (4%)
+- **Tests réussis :** 23/23 (100%)
 
 **Bugs identifiés :**
 
 1. ~~**Bug #1** : Soustraction - ordre des opérandes inversé (`b-a` au lieu de `a-b`)~~ **[RÉSOLU]** - Corrigé dans la branche `fix/ordre-substract`
 2. ~~**Bug #2** : Nombres négatifs non supportés (le parser interprétait `-` comme un second opérateur)~~ **[RÉSOLU]** – Corrigé dans la branche `bugfix/4-negative-numbers`
-3. **Bug #3** : Division entière au lieu de décimale (`//` au lieu de `/`)
+3. **Bug #3** : Division entière au lieu de décimale (`//` au lieu de `/`) ~~ **[RÉSOLU]** - Corrigé dans la branche ` fix/division-decimal`
 4. ~~**Bug #4** : Bugs d'affichage UI (boutons "02", "88", "\*" et "/" vides)~~ **[RÉSOLU]** - Corrigé dans la branche `fix/affichage-calculatrice`
 
 ### Tests manuels
