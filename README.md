@@ -450,7 +450,6 @@ python -m pytest tests/ --cov=. --cov-report=html
 Pour plus de détails sur les tests, consultez :
 
 - **[tests/README.md](tests/README.md)** - Guide complet des tests
-- **[BUGS_SUMMARY.md](BUGS_SUMMARY.md)** - Résumé des bugs identifiés
 
 #### Résultats des tests
 
